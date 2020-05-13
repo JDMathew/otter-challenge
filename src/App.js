@@ -20,8 +20,8 @@ function App() {
       <div className="content">
         <h3>The new way to happiness is through Otter!</h3>
         <h5>Be the first to know when we launch</h5>
-        <div onClick={togglePop}>
-          <br />
+
+        <div style={{ paddingTop: "40px" }} onClick={togglePop}>
           <button className="btn ">Request an invite</button>
         </div>
         {popupVisible ? <PopUp toggle={togglePop} /> : null}

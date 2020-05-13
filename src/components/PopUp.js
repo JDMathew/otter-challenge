@@ -4,14 +4,17 @@ import InviteForm from "./InviteForm";
 
 export default function PopUp({ toggle }) {
   const [showForm, setShowForm] = useState(true);
-  const [message, setMessage] = useState("");
+  const [formResponse, setFormResponse] = useState({
+    message: "",
+    success: false,
+  });
 
   const submitForm = () => {
     setShowForm(!showForm);
   };
 
-  const messageSetter = (message) => {
-    setMessage(message);
+  const messageSetter = (message, success) => {
+    setFormResponse({ message: message, success: success });
   };
 
   return (
@@ -24,14 +27,13 @@ export default function PopUp({ toggle }) {
         {showForm ? (
           <InviteForm
             toggle={toggle}
-            submitt={submitForm}
+            submit={submitForm}
             message={messageSetter}
           />
         ) : (
           <div>
-            <h4>All Done!</h4>
-            <p>{message}</p>
-
+            <h4>{formResponse.success ? "All Done!" : "Ooops..."}</h4>
+            <p>{formResponse.message}</p>
             <div onClick={toggle}>
               <button className="btn">Ok</button>
             </div>
