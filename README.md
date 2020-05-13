@@ -7,6 +7,26 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 The app runs on both mobile and web
 ![](images/otter-mobile-screenshot.png)
 
+## To run app
+
+- Clone the repo 
+```Shell
+git clone https://github.com/JDMathew/otter-challenge.git
+```
+- Change directory 
+```Shell
+cd otter-challenge
+```
+- Install node modules
+```Shell
+npm install
+```
+- Run project
+```Shell
+npm start
+```
+
+
 ## Available Scripts
 
 In the project directory, you can run:
