@@ -8,7 +8,7 @@ import {
   validateMatchingEmail,
 } from "../utils/inputValidations";
 
-export default function InviteForm({ toggle, submitt, message }) {
+export default function InviteForm({ toggle, submit, message }) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [confirmEmail, setConfirmEmail] = useState("");
@@ -38,16 +38,16 @@ export default function InviteForm({ toggle, submitt, message }) {
         )
         .then((res) => {
           if (res.status === 200) {
-            message(res.data.success);
-            submitt();
+            message(res.data.success, true); //res.data.success
+            submit();
           }
           //console.log(res);
           //console.log(res.data.success);
         })
         .catch((error) => {
-          if (error.response.status === 500) {
-            alert(error.response.data.error);
-            toggle();
+          if (error.response.status == 500) {
+            message(error.response.data.error, false); //error.response.data.error
+            submit();
           } else if (error.response.status === 400) {
             alert(error.response.data.error);
             toggle();
